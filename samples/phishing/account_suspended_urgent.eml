@@ -1,0 +1,42 @@
+From: "PayPal Security Support" <security@paypal-update-alert.com>
+To: victim@example.com
+Subject: URGENT ACTION REQUIRED: Account Suspended Immediately
+Date: Mon, 12 Oct 2026 10:15:00 +0000
+Message-ID: <20261012101500.12345.phish@paypal-update-alert.com>
+Reply-To: support@external-dropzone.net
+Return-Path: <bounce@unrelated-server.org>
+Authentication-Results: mx.example.com; spf=fail (sender IP 198.51.100.23); dkim=fail; dmarc=fail
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="====BOUNDARY_PHISH_1===="
+
+--====BOUNDARY_PHISH_1====
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+<head><title>Account Suspended</title></head>
+<body>
+  <h2>Urgent Action Required</h2>
+  <p>Dear Customer,</p>
+  <p>Your account has been locked due to suspicious activity detected on your profile.</p>
+  <p>To avoid permanent suspension, you must verify your identity within 24 hours.</p>
+  <p style="display:none;">hidden tracking code and spam filter evasion technique</p>
+  <p>
+    Click the secure link below to proceed with verification:
+    <br/>
+    <a href="https://paypa1-verification-login.com/auth">https://www.paypal.com/signin</a>
+  </p>
+  <p>Thank you,<br/>PayPal Support Team</p>
+</body>
+</html>
+
+--====BOUNDARY_PHISH_1====
+Content-Type: application/pdf; name="verification_form.pdf.exe"
+Content-Disposition: attachment; filename="verification_form.pdf.exe"
+Content-Transfer-Encoding: base64
+
+TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAyAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAAAAAAAAAAAAAAAAAAAA
+--====BOUNDARY_PHISH_1====--

@@ -1,0 +1,22 @@
+From: "GitHub" <notifications@github.com>
+To: developer@example.com
+Subject: [GitHub] Welcome to your weekly project digests
+Date: Mon, 12 Oct 2026 08:00:00 +0000
+Message-ID: <weekly-digest-20261012@github.com>
+Reply-To: notifications@github.com
+Return-Path: <bounces@github.com>
+Authentication-Results: mx.example.com; spf=pass (sender IP 140.82.112.4); dkim=pass header.d=github.com; dmarc=pass
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Your Weekly GitHub Summary</h2>
+  <p>Here are the updates from your subscribed repositories this week.</p>
+  <p>You can view your repository notifications anytime by visiting your dashboard:</p>
+  <p><a href="https://github.com/notifications">https://github.com/notifications</a></p>
+  <p>Best regards,<br/>The GitHub Team</p>
+</body>
+</html>

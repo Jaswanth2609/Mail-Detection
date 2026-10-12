@@ -1,0 +1,33 @@
+From: "Stripe Invoicing" <invoices@stripe.com>
+To: customer@example.com
+Subject: Receipt for Invoice #INV-2026-9810
+Date: Mon, 12 Oct 2026 09:12:00 +0000
+Message-ID: <inv-stripe-20261012@stripe.com>
+Reply-To: invoices@stripe.com
+Return-Path: <invoices@stripe.com>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass header.d=stripe.com; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="====STRIPE_RECEIPT_BOUNDARY===="
+
+--====STRIPE_RECEIPT_BOUNDARY====
+Content-Type: text/plain; charset="utf-8"
+
+Hi there,
+
+Thank you for your business. Please find your invoice receipt attached.
+You can review all transaction details directly in your billing portal at https://stripe.com.
+
+Best regards,
+Stripe Invoicing
+--====STRIPE_RECEIPT_BOUNDARY====
+Content-Type: application/pdf; name="receipt_9810.pdf"
+Content-Disposition: attachment; filename="receipt_9810.pdf"
+Content-Transfer-Encoding: base64
+
+JVBERi0xLjQKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBv
+Ymo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDE+PmVuZG9iagozIDAgb2JqPDwvVHlw
+ZS9QYWdlL1BhcmVudCAyIDAgUi9NZWRpYUJveFswIDAgMzAwIDE0NF0+PmVuZG9iagp4cmVmCjAg
+NAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwMTAgMDAwMDAgbiAKMDAwMDAwMDA2MCAwMDAw
+MCBuIAowMDAwMDAwMTExIDAwMDAwIG4gCnRyYWlsZXIKPDwvU2l6ZSA0L1Jvb3QgMSAwIFI+Pgpz
+dGFydHhyZWYKMTcwCiUlRU9G
+--====STRIPE_RECEIPT_BOUNDARY====--

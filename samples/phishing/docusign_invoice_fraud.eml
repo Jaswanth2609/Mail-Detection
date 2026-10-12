@@ -1,0 +1,22 @@
+From: "DocuSign Notification" <service@secure-docs-cloud.xyz>
+To: employee@example.com
+Subject: Action Required: Urgent Invoice Overdue for Review
+Date: Mon, 12 Oct 2026 11:30:00 +0000
+Message-ID: <20261012113000.67890@secure-docs-cloud.xyz>
+Authentication-Results: mx.example.com; spf=softfail; dkim=none; dmarc=fail
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Important DocuSign Envelope Waiting</h3>
+  <p>An urgent invoice is overdue. Immediate wire transfer required upon review.</p>
+  <p>Failure to comply within 24 hours will result in financial penalty.</p>
+  <p>Please review and sign the document immediately:</p>
+  <p><a href="http://192.168.1.105/docusign/view">Review Document Online</a></p>
+  <p><a href="https://bit.ly/3xFakeDoc">Backup Document Mirror</a></p>
+  <p>Thank you,<br/>DocuSign Trust Team</p>
+</body>
+</html>

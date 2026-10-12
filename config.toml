@@ -1,0 +1,150 @@
+# PhishScan Configuration
+# All tunable weights, thresholds, brand registries, and detection patterns
+
+[weights]
+auth_failure = 15
+auth_failure_max = 30
+domain_mismatch = 15
+display_name_spoofing = 20
+hidden_text = 15
+invisible_characters = 10
+urgency_credential_language = 10
+link_text_href_mismatch = 25
+suspicious_url_structure = 15
+lookalike_domain = 25
+high_risk_attachment = 25
+attachment_type_or_double_extension = 25
+
+[severity_bands]
+low_max = 24
+medium_max = 49
+high_max = 74
+critical_max = 100
+
+[keywords]
+urgency = [
+    "urgent action required",
+    "immediate action required",
+    "action required immediately",
+    "within 24 hours",
+    "within 48 hours",
+    "account suspended",
+    "account will be suspended",
+    "account suspended immediately",
+    "account has been locked",
+    "account locked",
+    "access suspended",
+    "access restricted",
+    "security alert",
+    "unauthorized access",
+    "unauthorized login attempt",
+    "suspicious activity detected",
+    "verify your account",
+    "verify identity",
+    "confirm your identity",
+    "verify your identity immediately",
+    "password expired",
+    "reset your password now",
+    "update payment method",
+    "billing problem",
+    "payment failed",
+    "click here to avoid deactivation",
+    "failure to comply",
+    "legal action",
+    "wire transfer required",
+    "payroll update required",
+    "invoice overdue",
+    "confidential document attached"
+]
+
+[brands]
+# Known brands with official domains used for lookalike & display-name spoofing detection
+popular = [
+    { name = "PayPal", domains = ["paypal.com", "paypal-communication.com"] },
+    { name = "Microsoft", domains = ["microsoft.com", "office.com", "live.com", "outlook.com", "sharepoint.com", "azure.com"] },
+    { name = "Google", domains = ["google.com", "gmail.com", "googlemail.com", "google-workspace.com"] },
+    { name = "Apple", domains = ["apple.com", "icloud.com"] },
+    { name = "Amazon", domains = ["amazon.com", "amazon.co.uk", "amazon.de", "amazon.fr", "amazon.in", "aws.amazon.com"] },
+    { name = "Netflix", domains = ["netflix.com"] },
+    { name = "Bank of America", domains = ["bankofamerica.com", "bofa.com"] },
+    { name = "Chase", domains = ["chase.com", "jpmorgan.com", "jpmorganchase.com"] },
+    { name = "Wells Fargo", domains = ["wellsfargo.com"] },
+    { name = "DHL", domains = ["dhl.com", "dhl.de"] },
+    { name = "FedEx", domains = ["fedex.com"] },
+    { name = "UPS", domains = ["ups.com"] },
+    { name = "DocuSign", domains = ["docusign.com", "docusign.net"] },
+    { name = "Dropbox", domains = ["dropbox.com", "dropboxmail.com"] },
+    { name = "Meta", domains = ["meta.com", "facebook.com", "instagram.com"] },
+    { name = "LinkedIn", domains = ["linkedin.com"] }
+]
+
+# Sensitive corporate/organizational role names used for display name spoofing
+roles = [
+    "ceo",
+    "cfo",
+    "cto",
+    "coo",
+    "executive director",
+    "human resources",
+    "hr department",
+    "it support",
+    "it department",
+    "it helpdesk",
+    "help desk",
+    "security team",
+    "security operations",
+    "admin",
+    "administrator",
+    "system administrator",
+    "billing department",
+    "payroll",
+    "accounting team"
+]
+
+[url_shorteners]
+domains = [
+    "bit.ly",
+    "tinyurl.com",
+    "t.co",
+    "is.gd",
+    "ow.ly",
+    "buff.ly",
+    "rebrand.ly",
+    "cutt.ly",
+    "goo.gl",
+    "shorturl.at",
+    "qr.net",
+    "tiny.cc",
+    "rb.gy",
+    "bl.ink"
+]
+
+[attachments]
+high_risk_extensions = [
+    ".exe",
+    ".js",
+    ".vbs",
+    ".scr",
+    ".iso",
+    ".lnk",
+    ".bat",
+    ".cmd",
+    ".ps1",
+    ".hta",
+    ".wsf",
+    ".docm",
+    ".xlsm",
+    ".pptm",
+    ".dotm",
+    ".xltm",
+    ".jar",
+    ".cpl",
+    ".inf",
+    ".reg",
+    ".dll",
+    ".pif",
+    ".com",
+    ".img",
+    ".vhd",
+    ".vhdx"
+]
