@@ -1,0 +1,11 @@
+From: "Microsoft Teams" <noreply@microsoft.com>
+To: employee@example.com
+Subject: Meeting reminder: Project Architecture Sync in 15 minutes
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_06_microsoft_teams_meeting.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.microsoft.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Join the meeting on Teams: <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting">Join Microsoft Teams Meeting</a>

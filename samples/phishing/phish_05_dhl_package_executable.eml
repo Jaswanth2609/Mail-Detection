@@ -1,0 +1,22 @@
+From: "DHL Express Delivery" <shipment@dhl-tracking-notice.com>
+To: victim@example.com
+Subject: Your DHL Parcel is Overdue for Delivery
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_05_dhl_package_executable.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=none; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="====BOUNDARY_ATT===="
+
+--====BOUNDARY_ATT====
+Content-Type: text/html; charset="utf-8"
+
+Your package delivery failed. Please review the attached label to avoid return fees.
+
+--====BOUNDARY_ATT====
+Content-Type: application/pdf; name="DHL_Shipping_Label.pdf.exe"
+Content-Disposition: attachment; filename="DHL_Shipping_Label.pdf.exe"
+Content-Transfer-Encoding: base64
+
+VFZxUUFBTUFBQUFFQUFBQS8vOEFBTGdBQUFBQUFBQUFRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUF5QUFBQUE0ZnVnNEF0QW5OSWJnQlRNMGhWR2hwY3lCd2NtOW5jbUZ0SUdOaGJtNXZkQ0JpWlNCeWRXNGdhVzRnUkU5VElHMXZaR1V1RFEwS0pBQUFBQUFBQUFCUVJRQUFUQUVEQUFBQUFBQUFBQUFBQUFBQUFBQUE=
+--====BOUNDARY_ATT====--

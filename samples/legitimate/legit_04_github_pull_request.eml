@@ -1,0 +1,11 @@
+From: "GitHub Notifications" <notifications@github.com>
+To: developer@example.com
+Subject: [Mail-Detection] Pull request #12 opened: Update rule scoring engine
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_04_github_pull_request.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.github.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+User has requested your review on PR #12.<br><a href="https://github.com/Jaswanth2609/Mail-Detection/pull/12">View Pull Request</a>

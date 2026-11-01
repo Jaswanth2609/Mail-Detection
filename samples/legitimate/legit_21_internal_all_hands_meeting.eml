@@ -1,0 +1,11 @@
+From: "Corporate Communications" <internal-comms@mycompany.corp>
+To: all-staff@mycompany.corp
+Subject: Quarterly Company Town Hall: Thursday 2:00 PM EST
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_21_internal_all_hands_meeting.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.mycompany.corp by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Join CEO and leadership for company updates. Meeting link: <a href="https://meet.google.com/abc-defg-hij">Join Video Stream</a>

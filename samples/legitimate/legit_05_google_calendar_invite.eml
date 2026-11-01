@@ -1,0 +1,11 @@
+From: "Google Calendar" <calendar-notification@google.com>
+To: team@example.com
+Subject: Invitation: Sprint Planning @ Mon Oct 19, 2026 10am - 11am
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_05_google_calendar_invite.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.google.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+You have been invited to Sprint Planning.<br><a href="https://calendar.google.com/calendar/event?eid=123">View on Google Calendar</a>

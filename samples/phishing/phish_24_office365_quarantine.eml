@@ -1,0 +1,11 @@
+From: "Microsoft Office 365" <quarantine@office365-security-admin.org>
+To: user@example.com
+Subject: Security Alert: 6 incoming messages held in quarantine
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_24_office365_quarantine.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Messages will be deleted within 24 hours. Click below to release:<br><a href="https://office365-security-admin.org/release">https://protection.office.com</a>

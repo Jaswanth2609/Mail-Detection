@@ -1,0 +1,11 @@
+From: "GitLab CI" <gitlab@mg.gitlab.com>
+To: devops@example.com
+Subject: Pipeline #4092 Passed for branch main
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_13_gitlab_pipeline_succeeded.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.mg.gitlab.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+All jobs in pipeline #4092 passed successfully. <a href="https://gitlab.com/project/pipelines/4092">View Pipeline</a>

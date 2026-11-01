@@ -1,0 +1,11 @@
+From: "Zoom Video Communications" <no-reply@zoom.us>
+To: attendee@example.com
+Subject: Confirmation: Security Best Practices Webinar
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_10_zoom_webinar_registration.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.zoom.us by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Thank you for registering. Join webinar at: <a href="https://zoom.us/w/899128">https://zoom.us</a>

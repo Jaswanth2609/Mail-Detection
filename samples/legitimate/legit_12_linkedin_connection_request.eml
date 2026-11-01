@@ -1,0 +1,11 @@
+From: "LinkedIn" <messages-noreply@linkedin.com>
+To: professional@example.com
+Subject: Alice Smith would like to connect with you on LinkedIn
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_12_linkedin_connection_request.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.linkedin.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Accept connection or view profile: <a href="https://www.linkedin.com/in/alicesmith">View Profile</a>

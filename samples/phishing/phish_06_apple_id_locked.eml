@@ -1,0 +1,11 @@
+From: "Apple Security" <security@apple-id-verify.online>
+To: victim@example.com
+Subject: Security Alert: Your Apple ID has been locked
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_06_apple_id_locked.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Suspicious activity detected. Click here to confirm your identity:<br><a href="https://apple-id-verify.online/signin">https://appleid.apple.com</a>

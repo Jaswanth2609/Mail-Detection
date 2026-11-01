@@ -1,0 +1,11 @@
+From: "DigitalOcean Support" <support@digitalocean.com>
+To: sysadmin@example.com
+Subject: Your monthly invoice for Droplets and Volumes is ready
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_17_digitalocean_invoice.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.digitalocean.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Your invoice for the period is $24.00. Review at <a href="https://cloud.digitalocean.com/billing">Billing History</a>

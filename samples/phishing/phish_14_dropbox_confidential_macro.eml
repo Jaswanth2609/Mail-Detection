@@ -1,0 +1,22 @@
+From: "Dropbox Security" <share@dropbox-cloud-storage.net>
+To: victim@example.com
+Subject: Confidential document attached: Signature required immediately
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_14_dropbox_confidential_macro.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=none; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="====BOUNDARY_ATT===="
+
+--====BOUNDARY_ATT====
+Content-Type: text/html; charset="utf-8"
+
+Please download and review the macro-enabled agreement document.
+
+--====BOUNDARY_ATT====
+Content-Type: application/vnd.ms-word.document.macroEnabled.12; name="NDA_Confidential_Signed.docm"
+Content-Disposition: attachment; filename="NDA_Confidential_Signed.docm"
+Content-Transfer-Encoding: base64
+
+UEsDBGR1bW15IG1hY3JvIG9mZmljZSBkb2MgcGF5bG9hZA==
+--====BOUNDARY_ATT====--

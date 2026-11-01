@@ -1,0 +1,11 @@
+From: "CEO Robert Davis" <robert.davis.ceo882@gmail.com>
+To: finance@example.com
+Subject: CONFIDENTIAL: Urgent wire transfer required today
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_04_ceo_wire_transfer.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=none
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Please process wire transfer required for urgent confidential acquisition within 24 hours.

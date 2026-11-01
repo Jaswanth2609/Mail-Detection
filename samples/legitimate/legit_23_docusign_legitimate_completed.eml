@@ -1,0 +1,11 @@
+From: "DocuSign Service" <dse@docusign.net>
+To: signer@example.com
+Subject: Completed: Consulting Agreement for Project Alpha
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_23_docusign_legitimate_completed.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.docusign.net by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+All parties have completed signing. Download the completed PDF: <a href="https://www.docusign.net/Member/Document.aspx">View Documents</a>

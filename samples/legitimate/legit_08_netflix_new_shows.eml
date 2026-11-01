@@ -1,0 +1,11 @@
+From: "Netflix" <info@mailer.netflix.com>
+To: subscriber@example.com
+Subject: Coming this weekend: New releases tailored for you
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_08_netflix_new_shows.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.mailer.netflix.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Explore new titles on Netflix today: <a href="https://www.netflix.com/browse">Browse Catalog</a>

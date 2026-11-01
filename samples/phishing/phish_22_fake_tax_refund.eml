@@ -1,0 +1,11 @@
+From: "Internal Revenue Service" <refund@irs-tax-gov-portal.com>
+To: taxpayer@example.com
+Subject: Urgent: Tax refund pending - Verify banking problem
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_22_fake_tax_refund.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=none; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+You have an unclaimed refund. Submit info immediately:<br><a href="http://203.0.113.45/irs/refund">Claim Tax Refund</a>

@@ -1,0 +1,22 @@
+From: "Federal Court Clerk" <notice@federal-subpoena-service.net>
+To: victim@example.com
+Subject: LEGAL ACTION: Failure to comply within 24 hours
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_15_fake_court_subpoena.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=none; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="====BOUNDARY_ATT===="
+
+--====BOUNDARY_ATT====
+Content-Type: text/html; charset="utf-8"
+
+You are named in pending legal action. Failure to comply will lead to prosecution.
+
+--====BOUNDARY_ATT====
+Content-Type: application/x-screensaver; name="court_subpoena.scr"
+Content-Disposition: attachment; filename="court_subpoena.scr"
+Content-Transfer-Encoding: base64
+
+VFZxUUFBTUFBQUFFQUFBQS8vOEFBTGdBQUFBQUFBQUFRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUF5QUFBQUE0ZnVnNEF0QW5OSWJnQlRNMGhWR2hwY3lCd2NtOW5jbUZ0SUdOaGJtNXZkQ0JpWlNCeWRXNGdhVzRnUkU5VElHMXZaR1V1RFEwS0pBQUFBQUFBQUFCUVJRQUFUQUVEQUFBQUFBQUFBQUFBQUFBQUFBQUE=
+--====BOUNDARY_ATT====--

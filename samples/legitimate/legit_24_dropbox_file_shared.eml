@@ -1,0 +1,11 @@
+From: "Dropbox" <no-reply@dropbox.com>
+To: collaborator@example.com
+Subject: David shared quarterly_report_final.pdf with you
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_24_dropbox_file_shared.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.dropbox.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+View shared PDF document securely: <a href="https://www.dropbox.com/s/123/report.pdf">Go to Dropbox</a>

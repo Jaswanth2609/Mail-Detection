@@ -1,0 +1,11 @@
+From: "Anonymous Security Group" <blackhat@darknet-onion-mail.net>
+To: victim@example.com
+Subject: LEGAL ACTION & EXTORTION: Wire transfer required within 48 hours
+Date: Mon, 12 Oct 2026 10:00:00 +0000
+Message-ID: <phish_25_ransom_extortion_threat.eml@sample.test>
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Received: from mail.attacker.com (attacker.com [198.51.100.1]) by mx.example.com with ESMTP id 12345; Mon, 12 Oct 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+We have recorded your unauthorized access. Wire transfer required immediately within 48 hours or legal action will follow.

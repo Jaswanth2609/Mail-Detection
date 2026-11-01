@@ -1,0 +1,11 @@
+From: "Stripe" <notifications@stripe.com>
+To: merchant@example.com
+Subject: Payout scheduled: $4,250.00 is on its way to your bank account
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_11_stripe_payout_notice.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.stripe.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Your daily payout has been initiated. View details in <a href="https://dashboard.stripe.com/payouts">Stripe Dashboard</a>

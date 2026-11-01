@@ -1,0 +1,11 @@
+From: "Spotify" <no-reply@spotify.com>
+To: listener@example.com
+Subject: Discover Weekly is ready for your listening pleasure
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_20_spotify_wrapped_playlist.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.spotify.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+30 fresh tracks chosen just for you. Listen now: <a href="https://open.spotify.com/playlist/weekly">Open Spotify</a>

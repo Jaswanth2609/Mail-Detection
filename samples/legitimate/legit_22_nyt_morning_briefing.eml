@@ -1,0 +1,11 @@
+From: "The New York Times" <nytnews@nytimes.com>
+To: reader@example.com
+Subject: The Morning: Highlights of today world news
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_22_nyt_morning_briefing.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.nytimes.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Read today top stories and analysis: <a href="https://www.nytimes.com">Read Online</a>

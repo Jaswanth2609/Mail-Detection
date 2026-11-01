@@ -1,0 +1,11 @@
+From: "Coursera Learning" <no-reply@coursera.org>
+To: student@example.com
+Subject: New Courses in Computer Security and Cryptography
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_18_coursera_course_recommendation.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.coursera.org by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Expand your skills with top university courses. <a href="https://www.coursera.org/browse">Explore Courses</a>

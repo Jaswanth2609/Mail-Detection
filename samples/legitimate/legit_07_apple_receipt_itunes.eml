@@ -1,0 +1,11 @@
+From: "Apple Support" <no_reply@email.apple.com>
+To: user@example.com
+Subject: Your invoice from Apple: iCloud+ 200 GB Storage Plan
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_07_apple_receipt_itunes.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.email.apple.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Thank you for your subscription renewal. Total: $2.99. Manage subscriptions at <a href="https://apple.com/account">https://apple.com</a>

@@ -1,0 +1,11 @@
+From: "Slack Notifications" <feedback@slack.com>
+To: member@example.com
+Subject: Slack notifications for Engineering workspace
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_09_slack_daily_digest.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.slack.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Here is your daily activity summary: <a href="https://slack.com/app">Open Slack</a>

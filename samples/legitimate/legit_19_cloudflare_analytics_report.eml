@@ -1,0 +1,11 @@
+From: "Cloudflare Insights" <no-reply@cloudflare.com>
+To: admin@example.com
+Subject: Cloudflare Weekly Traffic & Security Summary for example.com
+Date: Mon, 12 Oct 2026 09:00:00 +0000
+Message-ID: <legit_19_cloudflare_analytics_report.eml@sample.test>
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+Received: from mail.cloudflare.com by mx.example.com with ESMTP id 67890; Mon, 12 Oct 2026 09:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+Your site served 1.2M requests with 99.98% cache ratio. <a href="https://dash.cloudflare.com/analytics">View Analytics</a>
