@@ -1,5 +1,4 @@
-"""Body check module for PhishScan (FR-B1, FR-B2, FR-B3)."""
-
+"""Body and whitespace checks — FR-B1, FR-B2, FR-B3, FR-B4."""
 from __future__ import annotations
 
 import re
@@ -9,168 +8,143 @@ from bs4 import BeautifulSoup
 
 from phishscan.models import Finding, ParsedEmail
 
-# Invisible and zero-width Unicode characters
-INVISIBLE_UNICODE_CHARS = {
-    "\u200b": "Zero-Width Space (U+200B)",
-    "\u200c": "Zero-Width Non-Joiner (U+200C)",
-    "\u200d": "Zero-Width Joiner (U+200D)",
-    "\ufeff": "Zero-Width No-Break Space / BOM (U+FEFF)",
-    "\u200e": "Left-to-Right Mark (U+200E)",
-    "\u200f": "Right-to-Left Mark (U+200F)",
-    "\u2060": "Word Joiner (U+2060)",
-    "\u202a": "Left-to-Right Embedding (U+202A)",
-    "\u202b": "Right-to-Left Embedding (U+202B)",
-    "\u202c": "Pop Directional Formatting (U+202C)",
-    "\u202d": "Left-to-Right Override (U+202D)",
-    "\u202e": "Right-to-Left Override (U+202E)",
-    "\u180e": "Mongolian Vowel Separator (U+180E)",
+_INVISIBLE_UNICODE = {
+    "\u200b": "ZWSP", "\u200c": "ZWNJ", "\u200d": "ZWJ", "\ufeff": "BOM",
+    "\u200e": "LRM", "\u200f": "RLM", "\u2060": "WJ",
+    "\u202a": "LRE", "\u202b": "RLE", "\u202c": "PDF",
+    "\u202d": "LRO", "\u202e": "RLO", "\u180e": "MVS",
 }
 
-WHITE_COLOR_VALUES = {
-    "white",
-    "#fff",
-    "#ffffff",
-    "rgb(255,255,255)",
-    "rgb(255, 255, 255)",
-    "rgba(255,255,255,1)",
-    "rgba(255, 255, 255, 1)",
-}
+_WHITE_COLORS = {"white", "#fff", "#ffffff", "rgb(255,255,255)", "rgba(255,255,255,1)"}
 
 
-def _check_hidden_html(html_body: str) -> list[str]:
-    """Detect hidden text techniques in HTML body."""
-    techniques: list[str] = []
-    if not html_body:
-        return techniques
+def _detect_hidden_html(html: str) -> list[str]:
+    """FR-B1: Detect CSS and HTML text hiding techniques."""
+    if not html:
+        return []
+    methods: list[str] = []
 
-    # 1. Regex check on raw HTML for inline styles or attributes
-    if re.search(r'display\s*:\s*none', html_body, re.IGNORECASE):
-        techniques.append("CSS 'display:none'")
+    css_patterns = [
+        (r"display\s*:\s*none", "display:none"),
+        (r"visibility\s*:\s*hidden", "visibility:hidden"),
+        (r"font-size\s*:\s*0(?:\.0+)?(?:px|pt|em|rem|%)?", "font-size:0"),
+        (r"opacity\s*:\s*0(?:\.0+)?(?:\s*;|\s*$)", "opacity:0"),
+    ]
+    for pattern, label in css_patterns:
+        if re.search(pattern, html, re.I):
+            methods.append(label)
 
-    if re.search(r'visibility\s*:\s*hidden', html_body, re.IGNORECASE):
-        techniques.append("CSS 'visibility:hidden'")
-
-    if re.search(r'font-size\s*:\s*0(?:\.0+)?(?:px|pt|em|rem|%)?', html_body, re.IGNORECASE):
-        techniques.append("CSS 'font-size:0'")
-
-    if re.search(r'opacity\s*:\s*0(?:\.0+)?(?:\s*;|\s*$)', html_body, re.IGNORECASE):
-        techniques.append("CSS 'opacity:0'")
-
-    if re.search(r'<\s*[a-zA-Z0-9]+\s+[^>]*\bhidden\b', html_body, re.IGNORECASE):
-        techniques.append("HTML 'hidden' attribute")
-
-    # 2. Check for white-on-white text (color matching background)
     try:
-        soup = BeautifulSoup(html_body, "html.parser")
+        soup = BeautifulSoup(html, "html.parser")
         for tag in soup.find_all(True):
-            style = tag.get("style", "")
-            if not style or not isinstance(style, str):
-                continue
-
-            style_clean = style.lower().replace(" ", "")
-            color_match = re.search(r'color:([^;]+)', style_clean)
-            bg_match = re.search(r'background(?:-color)?:([^;]+)', style_clean)
-
-            if color_match and bg_match:
-                fg = color_match.group(1).strip()
-                bg = bg_match.group(1).strip()
-                if (fg in WHITE_COLOR_VALUES and bg in WHITE_COLOR_VALUES) or (fg == bg):
-                    techniques.append("White-on-white or same-color hidden text")
-                    break
-            elif color_match:
-                fg = color_match.group(1).strip()
-                # Check if tag background attribute or parent background is white
-                if fg in WHITE_COLOR_VALUES and tag.get("bgcolor", "").lower() in ("#fff", "#ffffff", "white"):
-                    techniques.append("White text on white bgcolor")
+            style = (tag.get("style") or "").lower().replace(" ", "")
+            cm = re.search(r"color:([^;]+)", style)
+            bm = re.search(r"background(?:-color)?:([^;]+)", style)
+            if cm and bm:
+                fg, bg = cm.group(1).strip(), bm.group(1).strip()
+                if (fg in _WHITE_COLORS and bg in _WHITE_COLORS) or fg == bg:
+                    methods.append("white-on-white text")
                     break
     except Exception:
         pass
-
-    return list(dict.fromkeys(techniques))
-
-
-def _check_invisible_unicode(texts: list[str]) -> list[str]:
-    """Detect zero-width and invisible Unicode characters."""
-    detected: list[str] = []
-    combined = "\n".join(texts)
-    for char, name in INVISIBLE_UNICODE_CHARS.items():
-        if char in combined:
-            detected.append(name)
-    return detected
+    return list(dict.fromkeys(methods))
 
 
-def _check_urgency_keywords(texts: list[str], keywords: list[str]) -> list[str]:
-    """Detect urgency, threat, or credential-request phrases."""
-    matches: list[str] = []
-    combined = " ".join(texts).lower()
-    for kw in keywords:
-        clean_kw = kw.strip().lower()
-        if not clean_kw:
-            continue
-        # Use regex to find phrase in text
-        if re.search(rf'\b{re.escape(clean_kw)}\b', combined):
-            matches.append(kw)
-    return matches
+def _detect_abnormal_whitespace(text: str) -> bool:
+    """FR-B2: Detect abnormal whitespace runs (padding to push content off-screen)."""
+    return bool(re.search(r"[ \t]{30,}", text) or re.search(r"\n{10,}", text))
 
 
-def check_body(parsed_email: ParsedEmail, config: dict[str, Any]) -> list[Finding]:
-    """
-    Executes body checks on the parsed email.
-    
-    FR-B1: Hidden text techniques (display:none, visibility:hidden, white-on-white, font-size:0).
-    FR-B2: Zero-width and other invisible Unicode characters.
-    FR-B3: Urgency, threat, and credential-request phrases.
-    """
+def _detect_low_text_image_ratio(parsed: ParsedEmail) -> bool:
+    """FR-B4: Flag HTML-only emails with no plain-text part and low text-to-image ratio."""
+    if parsed.text_body.strip():
+        return False
+    if not parsed.html_body.strip():
+        return False
+
+    try:
+        soup = BeautifulSoup(parsed.html_body, "html.parser")
+        images = soup.find_all("img")
+        text_len = len(soup.get_text(strip=True))
+        if images and text_len < 40:
+            return True
+    except Exception:
+        pass
+    return False
+
+
+def check_body(parsed: ParsedEmail, config: dict[str, Any]) -> list[Finding]:
+    """Execute body checks against parsed email."""
     findings: list[Finding] = []
     weights = config.get("weights", {})
-    hidden_weight = weights.get("hidden_text", 15)
-    invisible_weight = weights.get("invisible_characters", 10)
-    urgency_weight = weights.get("urgency_credential_language", 10)
+    hidden_w = weights.get("hidden_text", 15)
+    invisible_w = weights.get("invisible_characters", 10)
+    urgency_w = weights.get("urgency_credential_language", 10)
+    ratio_w = weights.get("low_text_image_ratio", 10)
 
-    # All text contents for character and keyword scanning
-    all_texts = [
-        parsed_email.subject,
-        parsed_email.text_body,
-        parsed_email.html_body,
-    ]
-
-    # --- FR-B1: Hidden Text Techniques ---
-    hidden_techniques = _check_hidden_html(parsed_email.html_body)
-    if hidden_techniques:
+    # FR-B1: Hidden text in HTML
+    hidden_methods = _detect_hidden_html(parsed.html_body)
+    if hidden_methods:
         findings.append(
             Finding(
                 rule_id="BODY_HIDDEN_TEXT",
                 category="Body",
-                title="Hidden text techniques detected",
-                description=f"Detected CSS/HTML text concealment methods: {', '.join(hidden_techniques)}.",
-                weight=hidden_weight,
+                title="Hidden text detected",
+                description=f"HTML concealment methods detected: {', '.join(hidden_methods)}.",
+                weight=hidden_w,
             )
         )
 
-    # --- FR-B2: Zero-Width and Invisible Characters ---
-    invisible_chars = _check_invisible_unicode(all_texts)
-    if invisible_chars:
+    # FR-B2: Invisible Unicode chars and abnormal whitespace
+    all_text = f"{parsed.subject}\n{parsed.text_body}\n{parsed.html_body}"
+    chars_found = [name for ch, name in _INVISIBLE_UNICODE.items() if ch in all_text]
+    has_abnormal_ws = _detect_abnormal_whitespace(all_text)
+    if chars_found or has_abnormal_ws:
+        details: list[str] = []
+        if chars_found:
+            details.append(f"invisible Unicode: {', '.join(chars_found)}")
+        if has_abnormal_ws:
+            details.append("abnormal whitespace padding")
         findings.append(
             Finding(
                 rule_id="BODY_INVISIBLE_CHARS",
                 category="Body",
-                title="Zero-width or invisible characters detected",
-                description=f"Found invisible Unicode characters often used for evasion: {', '.join(invisible_chars)}.",
-                weight=invisible_weight,
+                title="Zero-width or abnormal whitespace detected",
+                description=f"Evasion indicators: {'; '.join(details)}.",
+                weight=invisible_w,
             )
         )
 
-    # --- FR-B3: Urgency, Threat, and Credential-Request Phrases ---
-    configured_keywords = config.get("keywords", {}).get("urgency", [])
-    matched_keywords = _check_urgency_keywords(all_texts, configured_keywords)
-    if matched_keywords:
+    # FR-B3: Urgency and credential-request phrases
+    keywords = config.get("keywords", {}).get("urgency", [])
+    lower_text = all_text.lower()
+    matched = [
+        kw for kw in keywords
+        if kw.strip() and re.search(rf"\b{re.escape(kw.strip().lower())}\b", lower_text)
+    ]
+    if matched:
+        display_matched = ", ".join(matched[:5])
+        if len(matched) > 5:
+            display_matched += f" (+{len(matched) - 5} more)"
         findings.append(
             Finding(
                 rule_id="BODY_URGENCY_LANGUAGE",
                 category="Body",
-                title="Urgency or credential-request language detected",
-                description=f"Identified high-pressure or credential-harvesting phrases: {', '.join(matched_keywords[:5])}{' (and more)' if len(matched_keywords) > 5 else ''}.",
-                weight=urgency_weight,
+                title="Urgency or credential-request language",
+                description=f"Phrases detected: {display_matched}.",
+                weight=urgency_w,
+            )
+        )
+
+    # FR-B4: HTML-only email with low text-to-image ratio
+    if _detect_low_text_image_ratio(parsed):
+        findings.append(
+            Finding(
+                rule_id="BODY_LOW_TEXT_IMAGE_RATIO",
+                category="Body",
+                title="Image-only email with low text content",
+                description="Email has HTML image structure but almost no readable plain text.",
+                weight=ratio_w,
             )
         )
 
