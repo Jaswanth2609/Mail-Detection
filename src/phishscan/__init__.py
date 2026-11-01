@@ -1,16 +1,3 @@
-"""PhishScan - Rule-based email phishing detection and analysis engine."""
+"""PhishScan — Offline-first rule-based email phishing detection engine."""
 
-__version__ = "0.0.0"
-
-from phishscan.models import AnalysisResult, Finding, ParsedEmail
-from phishscan.parser import parse_eml
-from phishscan.scoring import evaluate_email
-
-__all__ = [
-    "AnalysisResult",
-    "Finding",
-    "ParsedEmail",
-    "parse_eml",
-    "evaluate_email",
-    "__version__",
-]
+__version__ = "1.0.0"

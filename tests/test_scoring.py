@@ -65,9 +65,8 @@ def test_scoring_fault_isolation_nfr2(config, monkeypatch):
 
     monkeypatch.setattr("phishscan.scoring.check_body", broken_check)
 
-    result = evaluate_email(email_data, config)
-    assert len(result.skipped_checks) == 1
-    assert "Simulated crash" in result.skipped_checks[0]
+    result = evaluate_email(email_data, config, offline=True)
+    assert any("Simulated crash" in s for s in result.skipped_checks)
     # Execution completed without unhandled exception
     assert result.score >= 0
 

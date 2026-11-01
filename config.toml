@@ -1,25 +1,34 @@
 # PhishScan Configuration
-# All tunable weights, thresholds, brand registries, and detection patterns
+# All tunable weights, severity bands, gray-zone range, and detection catalogs
 
 [weights]
 auth_failure = 15
 auth_failure_max = 30
 domain_mismatch = 15
 display_name_spoofing = 20
+received_anomaly = 10
 hidden_text = 15
 invisible_characters = 10
 urgency_credential_language = 10
+low_text_image_ratio = 10
 link_text_href_mismatch = 25
 suspicious_url_structure = 15
 lookalike_domain = 25
+recent_domain = 15
+threat_intel_url = 30
 high_risk_attachment = 25
 attachment_type_or_double_extension = 25
+threat_intel_attachment = 40
 
 [severity_bands]
 low_max = 24
 medium_max = 49
 high_max = 74
 critical_max = 100
+
+[gray_zone]
+min = 30
+max = 70
 
 [keywords]
 urgency = [
@@ -58,7 +67,6 @@ urgency = [
 ]
 
 [brands]
-# Known brands with official domains used for lookalike & display-name spoofing detection
 popular = [
     { name = "PayPal", domains = ["paypal.com", "paypal-communication.com"] },
     { name = "Microsoft", domains = ["microsoft.com", "office.com", "live.com", "outlook.com", "sharepoint.com", "azure.com"] },
@@ -78,7 +86,6 @@ popular = [
     { name = "LinkedIn", domains = ["linkedin.com"] }
 ]
 
-# Sensitive corporate/organizational role names used for display name spoofing
 roles = [
     "ceo",
     "cfo",
